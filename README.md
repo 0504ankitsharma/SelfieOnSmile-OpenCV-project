@@ -1,13 +1,97 @@
-# SelfieOnSmile-OpenCV-project
+# 📸 SelfieOnSmile – OpenCV Project
 
-I have made this Project By following a Tutorial on Youtube and Learnt about OpenCV and  Face Detection.
+This project detects a smile in real-time using **OpenCV** and automatically captures a selfie when you smile.
+I built this by following a YouTube tutorial and, along the way, learned about **OpenCV basics, face detection, and smile detection** using Haarcascade classifiers.
 
-Steps Involved to implement Smile Detection and Selfie Capture Project
+---
 
-We first import the openCV library.
-Now start webcam in the second line using the VideoCapture function of cv2.
-Then, include haarcascade files in the python file.
-Video is nothing but a series of images so we will run an infinite while loop for the same.
-Then we are reading images from the video through read().
-As feature recognition is more accurate in gray images we will convert the image to gray image using cvtColor() and BGR2GRAY which are basic openCV functions.
-Now we will read faces using an already included haarcascade file and detectMultiscale() function where we pass gray image, ScaleFactor, and minNeighbors. ScaleFactor: Parameter specifying zoom image, accuracy depends on it so we will keep it close to 1 but not very close as if we take 1.001(very close to 1), then it would detect even shadows so 1.1 is good enough for the face. minNeighbors: Parameter specifying how many neighbors each rectangle should have to retain it. If it detects a face we will draw an outer boundary of the face using rectangle() method of cv2 containing 5 arguments: image, initial point (x, y), an endpoint of principal diagonal (x + width, y + height), color of the rectangular periphery and last parameter is the thickness of drawn rectangular periphery. If the face is detected then we will similarly detect a smile and if a smile is detected too we will print Image and save at the location where we want to save them. To save the images we will use imwrite() which takes 2 parameters- location and image. To break infinite loop, we have used an if statement which becomes true when we press ‘q’ denoting ‘quit’. At last, we will release the video. Do not forget to destroy all the windows.
+## 🚀 Features
+
+* Real-time **face detection** using Haarcascade
+* **Smile detection** with Haarcascade
+* Automatically captures and saves a **selfie when a smile is detected**
+* Works with **webcam feed**
+* Press **`q`** anytime to quit the program
+
+---
+
+## 🛠️ Tech Stack
+
+* **Python 3**
+* **OpenCV (cv2)**
+* **Haarcascade Classifiers**
+
+---
+
+## ⚙️ Steps Involved
+
+1. **Import OpenCV** (`cv2`)
+2. **Start webcam** using `cv2.VideoCapture()`
+3. **Load Haarcascade XML files** for face and smile detection
+4. **Continuous frame capture** (video = series of images) using `while True`
+5. **Convert frames to grayscale** (`cv2.cvtColor`) for better feature detection
+6. **Detect faces** using `detectMultiScale()`
+
+   * **ScaleFactor**: Adjusts zoom level (recommended `1.1`)
+   * **minNeighbors**: Number of neighbors to retain detection
+7. **Draw rectangle** around detected faces (`cv2.rectangle`)
+8. If a **smile is detected inside the face**, capture and **save the image** using `cv2.imwrite()`
+9. **Press `q`** to exit the program
+10. **Release resources** and close all windows
+
+---
+
+## 📂 Project Structure
+
+```
+SelfieOnSmile-OpenCV-project/
+│── haarcascade_frontalface_default.xml
+│── haarcascade_smile.xml
+│── selfie_on_smile.py
+│── README.md
+│── /saved_images
+```
+
+---
+
+## ▶️ How to Run
+
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/0504ankitsharma/SelfieOnSmile-OpenCV-project.git
+   cd SelfieOnSmile-OpenCV-project
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   pip install opencv-python
+   ```
+
+3. Run the script:
+
+   ```bash
+   python selfie_on_smile.py
+   ```
+
+4. Smile 😄 → Your picture will be saved in `/saved_images/`
+
+---
+
+## 📚 Learning Outcomes
+
+Through this project, I learned:
+
+* How to use **OpenCV** for real-time video processing
+* **Face and smile detection** with Haarcascades
+* How to capture and save frames using OpenCV
+
+---
+
+## 🙌 Acknowledgements
+
+* OpenCV official documentation
+* YouTube tutorial 
+
+---
